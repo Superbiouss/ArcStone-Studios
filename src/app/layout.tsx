@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import { NoiseTexture } from "@/components/ui/NoiseTexture";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { NoiseTexture } from "@/components/ui/NoiseTexture";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -13,9 +14,10 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "ArcStone Studios — Bold Digital Experiences",
+  metadataBase: new URL("https://arcstonestudio.in"),
+  title: "ArcStone Studios | Creative Agency",
   description:
-    "We are a creative agency that builds bold, kinetic digital experiences. Strategy, design, and development for brands that refuse to blend in.",
+    "We craft unmistakable digital experiences and identity systems. Stop settling for unpredictable freelancers.",
   keywords: [
     "creative agency",
     "digital design",
@@ -31,6 +33,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "ArcStone Studios",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "ArcStone Studios Preview",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -56,6 +66,12 @@ export default function RootLayout({
           {children}
           <NoiseTexture />
           <CustomCursor />
+          <Toaster 
+            position="bottom-right"
+            toastOptions={{
+              className: 'border-2 border-border rounded-none bg-background text-foreground font-bold uppercase tracking-widest',
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>

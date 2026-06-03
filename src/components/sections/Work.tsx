@@ -1,6 +1,10 @@
+"use client";
+
+import { useRef } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { HoverBadgeWrapper } from "@/components/motion/HoverBadgeWrapper";
+import { useScroll, useTransform, motion } from "motion/react";
 import Image from "next/image";
 
 const InstagramIcon = ({ className = "w-4 h-4" }) => (
@@ -85,6 +89,33 @@ const projects = [
   },
 ];
 
+function ProjectImage({ image, title }: { image: string; title: string }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
+  return (
+    <div ref={ref} className="aspect-[4/3] w-full relative bg-muted overflow-hidden">
+      <HoverBadgeWrapper text="View Project">
+        <motion.div
+          style={{ y, width: "100%", height: "120%", position: "absolute", top: "-10%" }}
+        >
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        </motion.div>
+      </HoverBadgeWrapper>
+    </div>
+  );
+}
+
 export function Work() {
   return (
     <section id="work" className="py-20 md:py-32 border-t-2 border-border">
@@ -107,16 +138,7 @@ export function Work() {
             >
               <div className="group bg-background overflow-hidden cursor-pointer h-full">
                 {/* Project Image */}
-                <div className="aspect-[4/3] w-full relative bg-muted">
-                  <HoverBadgeWrapper text="View Project">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </HoverBadgeWrapper>
-                </div>
+                <ProjectImage image={project.image} title={project.title} />
 
                 {/* Project Info */}
                 <div className="p-6 md:p-8 border-t-2 border-border group-hover:border-accent transition-colors duration-300">

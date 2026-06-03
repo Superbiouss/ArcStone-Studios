@@ -1,9 +1,43 @@
 "use client";
 
+import { useState } from "react";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { Button } from "@/components/ui/Button";
+import { toast } from "sonner";
 
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    try {
+      // Replace with actual Formspree endpoint
+      const response = await fetch("https://formspree.io/f/xbjnzdzl", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully! We'll be in touch soon.");
+        form.reset();
+      } else {
+        toast.error("Oops! Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Oops! Something went wrong. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 md:py-32 border-t-2 border-border">
       <div className="mx-auto max-w-[95vw]">
@@ -21,16 +55,13 @@ export function Contact() {
         <div className="mt-12 md:mt-20 max-w-4xl">
           <form 
             className="space-y-0" 
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Thank you for reaching out! We'll get back to you shortly.");
-              (e.target as HTMLFormElement).reset();
-            }}
+            onSubmit={handleSubmit}
           >
             <ScrollReveal delay={0.1}>
               <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
                 <input
                   type="text"
+                  name="name"
                   placeholder="YOUR NAME"
                   className="w-full h-20 md:h-24 bg-transparent text-2xl md:text-4xl font-bold uppercase tracking-tighter text-foreground placeholder:text-muted px-0 outline-none"
                   required
@@ -43,6 +74,7 @@ export function Contact() {
               <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
                 <input
                   type="email"
+                  name="email"
                   placeholder="YOUR EMAIL"
                   className="w-full h-20 md:h-24 bg-transparent text-2xl md:text-4xl font-bold uppercase tracking-tighter text-foreground placeholder:text-muted px-0 outline-none"
                   required
@@ -54,6 +86,7 @@ export function Contact() {
             <ScrollReveal delay={0.3}>
               <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
                 <textarea
+                  name="message"
                   placeholder="TELL US ABOUT YOUR PROJECT"
                   rows={3}
                   className="w-full bg-transparent text-2xl md:text-4xl font-bold uppercase tracking-tighter text-foreground placeholder:text-muted px-0 py-6 md:py-8 outline-none resize-none"
@@ -65,8 +98,8 @@ export function Contact() {
 
             <ScrollReveal delay={0.4}>
               <div className="pt-8 md:pt-12">
-                <Button variant="primary" size="lg" className="w-full md:w-auto">
-                  Send Message
+                <Button variant="primary" size="lg" className="w-full md:w-auto" disabled={isSubmitting}>
+                  {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
                 </Button>
               </div>
             </ScrollReveal>
