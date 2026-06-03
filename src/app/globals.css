@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ============================================
+   ARCSTONE STUDIOS — KINETIC TYPOGRAPHY TOKENS
+   ============================================ */
+
+@theme inline {
+  /* Color Architecture */
+  --color-background: #09090B;
+  --color-foreground: #FAFAFA;
+  --color-muted: #27272A;
+  --color-muted-foreground: #A1A1AA;
+  --color-accent: #DFE104;
+  --color-accent-foreground: #000000;
+  --color-border: #3F3F46;
+
+  /* Typography */
+  --font-sans: var(--font-space-grotesk), "Inter", system-ui, sans-serif;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-background);
+}
+
+/* ============================================
+   REDUCED MOTION PREFERENCES
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-container {
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   NOISE TEXTURE OVERLAY (applied via component)
+   ============================================ */
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+}
