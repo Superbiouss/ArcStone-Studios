@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { NoiseTexture } from "@/components/ui/NoiseTexture";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -48,10 +49,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} antialiased`}>
+    <html lang="en" className={`${spaceGrotesk.variable} antialiased`} suppressHydrationWarning>
       <body className="min-h-screen overflow-x-hidden">
-        {children}
-        <NoiseTexture />
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
+          <NoiseTexture />
+        </ThemeProvider>
       </body>
     </html>
   );

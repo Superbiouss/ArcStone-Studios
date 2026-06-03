@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { AnimatePresence, motion } from "motion/react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -15,6 +17,15 @@ const navLinks = [
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  // Prevent hydration mismatch for theme-dependent UI
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = !mounted || resolvedTheme === "dark"; // Default to dark on server
 
   return (
     <>
@@ -26,7 +37,7 @@ export function Navbar() {
             className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
           >
             <Image
-              src="/logos/arcstone-white.png"
+              src={isDark ? "/logos/arcstone-white.png" : "/logos/arcstone-final.jpg"}
               alt="ArcStone Studios"
               width={200}
               height={50}
@@ -46,6 +57,7 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            <ThemeToggle />
             <Button variant="primary" size="sm">
               Let&apos;s Talk
             </Button>
@@ -106,8 +118,14 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="mt-12"
+              className="mt-12 flex flex-col gap-6"
             >
+              <div className="flex items-center gap-4">
+                <span className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
+                  Theme
+                </span>
+                <ThemeToggle />
+              </div>
               <Button
                 variant="primary"
                 size="lg"

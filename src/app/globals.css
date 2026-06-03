@@ -6,16 +6,42 @@
 
 @theme inline {
   /* Color Architecture */
-  --color-background: #09090B;
-  --color-foreground: #FAFAFA;
-  --color-muted: #27272A;
-  --color-muted-foreground: #A1A1AA;
-  --color-accent: #DFE104;
-  --color-accent-foreground: #000000;
-  --color-border: #3F3F46;
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-fg);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-fg);
+  --color-border: var(--border);
 
   /* Typography */
   --font-sans: var(--font-space-grotesk), "Inter", system-ui, sans-serif;
+}
+
+/* ============================================
+   THEME VARIABLES
+   ============================================ */
+
+:root {
+  /* Light Theme */
+  --bg: #FAFAFA;
+  --fg: #09090B;
+  --muted: #F4F4F5;
+  --muted-fg: #71717A;
+  --accent: #DFE104;
+  --accent-fg: #000000;
+  --border: #E4E4E7;
+}
+
+.dark {
+  /* Dark Theme */
+  --bg: #09090B;
+  --fg: #FAFAFA;
+  --muted: #27272A;
+  --muted-fg: #A1A1AA;
+  --accent: #DFE104;
+  --accent-fg: #000000;
+  --border: #3F3F46;
 }
 
 /* ============================================
