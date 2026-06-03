@@ -46,6 +46,9 @@ export function Testimonials() {
             title="WHAT THEY SAY"
             accentWord="SAY"
           />
+          <p className="text-sm uppercase tracking-widest text-muted-foreground mt-4 md:mt-6 hidden md:block">
+            ← Auto-scrolling →
+          </p>
         </ScrollReveal>
       </div>
 

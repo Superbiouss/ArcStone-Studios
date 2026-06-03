@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const footerLinks = {
@@ -73,12 +75,12 @@ export function Footer() {
           <p className="text-sm uppercase tracking-wide text-accent-foreground/60">
             &copy; {currentYear} ArcStone Studios. All rights reserved.
           </p>
-          <a
-            href="#"
-            className="text-sm font-bold uppercase tracking-widest text-accent-foreground hover:underline underline-offset-4"
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="text-sm font-bold uppercase tracking-widest text-accent-foreground hover:underline underline-offset-4 cursor-pointer"
           >
             Back to Top ↑
-          </a>
+          </button>
         </div>
       </div>
     </footer>

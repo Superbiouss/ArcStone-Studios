@@ -41,8 +41,8 @@ export function FAQ() {
       <div className="mx-auto max-w-[95vw]">
         <ScrollReveal>
           <SectionHeading
-            title="FREQUENTLY ASKED"
-            accentWord="ASKED"
+            title="FREQUENTLY ASKED QUESTIONS"
+            accentWord="QUESTIONS"
           />
         </ScrollReveal>
 

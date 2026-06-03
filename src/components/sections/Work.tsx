@@ -45,8 +45,12 @@ export function Work() {
         {/* Project grid with hairline dividers */}
         <div className="mt-16 md:mt-24 bg-border grid md:grid-cols-2 gap-px">
           {projects.map((project, i) => (
-            <ScrollReveal key={project.title} delay={i * 0.1}>
-              <div className="group bg-background overflow-hidden cursor-pointer">
+            <ScrollReveal 
+              key={project.title} 
+              delay={i * 0.1}
+              className={i === projects.length - 1 && projects.length % 2 !== 0 ? "md:col-span-2" : ""}
+            >
+              <div className="group bg-background overflow-hidden cursor-pointer h-full">
                 {/* Project Image */}
                 <div className="aspect-[4/3] w-full relative overflow-hidden bg-muted">
                   <Image

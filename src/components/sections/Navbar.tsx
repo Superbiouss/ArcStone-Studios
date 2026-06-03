@@ -21,9 +21,9 @@ export function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b-2 border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto max-w-[95vw] flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a
-            href="#"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
           >
             <Image
               src="/logos/arcstone-white.png"
@@ -33,7 +33,7 @@ export function Navbar() {
               className="h-8 md:h-10 w-auto object-contain"
               priority
             />
-          </a>
+          </button>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">

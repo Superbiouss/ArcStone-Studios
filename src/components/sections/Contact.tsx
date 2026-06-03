@@ -17,7 +17,7 @@ export function Contact() {
         <div className="mt-12 md:mt-20 max-w-4xl">
           <form className="space-y-0">
             <ScrollReveal delay={0.1}>
-              <div className="border-b-2 border-border focus-within:border-accent transition-colors">
+              <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
                 <input
                   type="text"
                   placeholder="YOUR NAME"
@@ -29,7 +29,7 @@ export function Contact() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <div className="border-b-2 border-border focus-within:border-accent transition-colors">
+              <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
                 <input
                   type="email"
                   placeholder="YOUR EMAIL"
@@ -41,7 +41,7 @@ export function Contact() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <div className="border-b-2 border-border focus-within:border-accent transition-colors">
+              <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
                 <textarea
                   placeholder="TELL US ABOUT YOUR PROJECT"
                   rows={3}
