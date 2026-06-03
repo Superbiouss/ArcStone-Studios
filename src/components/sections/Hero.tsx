@@ -3,11 +3,11 @@
 import { Button } from "@/components/ui/Button";
 import { ParallaxHero } from "@/components/motion/ParallaxHero";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 
 const headlineWords = ["CREATIVE", "SOLUTIONS", "TO", "STAND", "OUT"];
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -18,7 +18,7 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 80, rotate: 2 },
   show: {
     opacity: 1,
