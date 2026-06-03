@@ -7,33 +7,21 @@ import { ScrollReveal } from "@/components/motion/ScrollReveal";
 const testimonials = [
   {
     quote:
-      "ArcStone didn't just build our website — they built our entire digital identity. The result was nothing short of electric.",
-    name: "Sarah Chen",
-    company: "Neon Collective",
+      "Working with Crate is like having a dedicated squad of tech wizards and branding experts at my fingertips. And believe it or not, the value they bring is priceless.",
+    name: "Williams Paul",
+    company: "HR, Greenish",
   },
   {
     quote:
-      "Working with ArcStone felt like having a creative partner, not just an agency. They pushed us to be bolder at every turn.",
-    name: "Marcus Rivera",
-    company: "Vortex Labs",
+      "It's as if I have a full squad of internet experts and advertising professionals on my side, and the highlight? It didn't charge me a single penny",
+    name: "Adam Kary",
+    company: "Creative Lead, Cloud",
   },
   {
     quote:
-      "The attention to detail is insane. Every animation, every transition — it all feels intentional and alive.",
-    name: "Priya Kapoor",
-    company: "Pulse Audio",
-  },
-  {
-    quote:
-      "We came with a vague idea. They delivered a brand experience that made our competitors take notice.",
-    name: "James Thornton",
-    company: "Iron & Oak",
-  },
-  {
-    quote:
-      "Fast, decisive, and uncompromising on quality. ArcStone is what every creative agency should aspire to be.",
-    name: "Elena Vasquez",
-    company: "Drift Studio",
+      "It feels like I’ve got an entire team of web gurus and marketing pros working for me, and the best part? It didn’t cost me a cent.",
+    name: "Chris Waterwood",
+    company: "VP, Minty",
   },
 ];
 
@@ -43,8 +31,8 @@ export function Testimonials() {
       <div className="mx-auto max-w-[95vw] mb-12 md:mb-16">
         <ScrollReveal>
           <SectionHeading
-            title="WHAT THEY SAY"
-            accentWord="SAY"
+            title="WHAT THE BRANDS SAY"
+            accentWord="BRANDS"
           />
           <p className="text-sm uppercase tracking-widest text-muted-foreground mt-4 md:mt-6 hidden md:block">
             ← Auto-scrolling →

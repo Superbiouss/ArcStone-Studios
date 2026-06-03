@@ -25,12 +25,12 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-[clamp(3rem,11vw,13rem)] font-bold uppercase tracking-tighter leading-[0.85]"
         >
-          WE BUILD{" "}
-          <span className="text-accent">BOLD</span>
+          CREATIVE{" "}
+          <span className="text-accent">SOLUTIONS</span>
           <br />
-          DIGITAL
+          TO STAND
           <br />
-          EXPERIENCES
+          OUT
         </motion.h1>
 
         {/* Subtitle + CTAs */}
@@ -41,8 +41,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-xl leading-tight"
           >
-            Strategy, design, and development for brands
-            that refuse to blend in.
+            Creative solution for businesses looking to stand out.
           </motion.p>
 
           <motion.div

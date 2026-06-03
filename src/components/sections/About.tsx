@@ -15,27 +15,22 @@ export function About() {
 
         <ScrollReveal>
           <SectionHeading
-            title="WE DON'T FOLLOW TRENDS — WE SET THEM"
-            accentWord="SET"
-            subtitle="ArcStone Studios is a collective of designers, developers, and strategists who believe digital experiences should be felt, not just seen."
+            title="FRUSTRATED BY UNPREDICTABLE FREELANCERS?"
+            accentWord="UNPREDICTABLE"
+            subtitle="Explore our tailored solutions to navigate the unpredictability of freelancers and unlock dependable support that fits your budgetary constraints."
           />
         </ScrollReveal>
 
         <div className="mt-12 md:mt-20 grid md:grid-cols-2 gap-12 md:gap-20">
           <ScrollReveal delay={0.1}>
             <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-tight">
-              We partner with ambitious brands to craft digital products that
-              command attention. Every pixel is deliberate. Every interaction is
-              designed to leave an impression.
+              Hiring with a limited budget? We offer a creative solution for businesses looking to stand out. From identity systems to immersive web experiences, we bring a relentless pursuit of excellence and a refusal to settle for ordinary.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
             <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-tight">
-              From identity systems to immersive web experiences, we bring a
-              relentless pursuit of excellence and a refusal to settle for
-              ordinary. Your brand deserves to be{" "}
-              <span className="text-accent font-bold">unmistakable</span>.
+              Every pixel is deliberate. Every interaction is designed to leave an impression. Your brand deserves to be <span className="text-accent font-bold">unmistakable</span>.
             </p>
           </ScrollReveal>
         </div>

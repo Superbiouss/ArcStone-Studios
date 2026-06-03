@@ -4,34 +4,29 @@ import { AccordionItem } from "@/components/motion/Accordion";
 
 const faqs = [
   {
-    question: "What kind of projects do you take on?",
+    question: "What is haven about?",
     answer:
-      "We work with ambitious brands on branding, web design, web development, motion design, and creative direction. From startups launching their first product to established companies redefining their digital presence — if you want to stand out, we're your team.",
+      "Sincerely, it is as though you have a pair of spectacles enabling you to see deeper into problems man longs to dissipate and solve. And luckily for any man who reads you, he will get the answers to his worries except he still isn't ready to tackle himself. Kudos! Keep the ball rolling.",
   },
   {
-    question: "How long does a typical project take?",
+    question: "What are the criteria to become a writer?",
     answer:
-      "Timelines vary based on scope. A brand identity project typically takes 4-6 weeks. A full website design and development runs 8-12 weeks. We'll define a clear timeline during our discovery phase and keep you updated throughout.",
+      "Friends who talk about cryptocurrencies and Web3, and you want to understand the terminology.",
   },
   {
-    question: "What's your pricing structure?",
+    question: "I Want to Use AI in My Work, But I Don't Know How",
     answer:
-      "We offer project-based pricing tailored to your specific needs and goals. Every engagement starts with a discovery session to define scope, after which we provide a detailed proposal. We believe in transparency — no hidden fees, no surprises.",
+      "You want to embrace the future of technology without fear.",
   },
   {
-    question: "Do you work with international clients?",
+    question: "I Want to Be More Efficient and Creative, But There Are Too Many Tools",
     answer:
-      "Absolutely. We've delivered projects across 12+ countries and are experienced with remote collaboration across time zones. Our process is designed to work seamlessly whether you're across the street or across the globe.",
+      "You're ready to navigate tomorrow's innovations confidently.",
   },
   {
-    question: "What happens after launch?",
+    question: "What's the Onboarding process like",
     answer:
-      "Launch is just the beginning. We offer ongoing support packages that include maintenance, performance monitoring, content updates, and iterative improvements based on real user data. Your digital presence keeps evolving.",
-  },
-  {
-    question: "How do we get started?",
-    answer:
-      "Simple — reach out through our contact form or email us. We'll schedule a free 30-minute discovery call to understand your vision, discuss your goals, and see if we're the right fit. No commitment, no pressure.",
+      "You're ready to navigate tomorrow's innovations confidently.",
   },
 ];
 
@@ -41,8 +36,8 @@ export function FAQ() {
       <div className="mx-auto max-w-[95vw]">
         <ScrollReveal>
           <SectionHeading
-            title="FREQUENTLY ASKED QUESTIONS"
-            accentWord="QUESTIONS"
+            title="GOT QUESTIONS? WE'VE GOT ANSWERS!"
+            accentWord="ANSWERS"
           />
         </ScrollReveal>
 

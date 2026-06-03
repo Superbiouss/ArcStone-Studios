@@ -4,33 +4,21 @@ import { ScrollReveal } from "@/components/motion/ScrollReveal";
 const services = [
   {
     number: "01",
-    title: "Brand Strategy",
+    title: "Design Board",
     description:
-      "We define the core of your brand — positioning, messaging, and identity systems that resonate deeply with your audience and differentiate you in the market.",
+      "Access an informative design collaboration tool for easy project tracking.",
   },
   {
     number: "02",
-    title: "UI/UX Design",
+    title: "Super Fast Delivery",
     description:
-      "User-centered design that balances beauty with function. Every interface we create is intuitive, accessible, and crafted to drive engagement and conversion.",
+      "Unlock a seamless design experience, where each design is crafted and delivered in days.",
   },
   {
     number: "03",
-    title: "Web Development",
+    title: "Unique & Distinct",
     description:
-      "High-performance, responsive web experiences built with modern frameworks. We write clean, scalable code that performs flawlessly across every device.",
-  },
-  {
-    number: "04",
-    title: "Motion Design",
-    description:
-      "Kinetic typography, micro-interactions, and scroll-driven animations that make your digital presence feel alive. Static is dead — we make things move.",
-  },
-  {
-    number: "05",
-    title: "Creative Direction",
-    description:
-      "End-to-end creative vision that ensures every touchpoint — from pitch deck to production site — speaks with one bold, unmistakable voice.",
+      "Every design we create is uniquely tailored to your needs and remains 100% yours.",
   },
 ];
 
@@ -40,9 +28,9 @@ export function Services() {
       <div className="mx-auto max-w-[95vw]">
         <ScrollReveal>
           <SectionHeading
-            title="WHAT WE DO"
-            accentWord="DO"
-            subtitle="Full-spectrum creative services for brands that demand more."
+            title="ENJOY PERKS SO GOOD"
+            accentWord="PERKS"
+            subtitle="Experience unparalleled perks that redefine your design journey. With us, you'll never need to search elsewhere."
           />
         </ScrollReveal>
 

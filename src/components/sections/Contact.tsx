@@ -6,11 +6,13 @@ export function Contact() {
     <section id="contact" className="py-20 md:py-32 border-t-2 border-border">
       <div className="mx-auto max-w-[95vw]">
         <ScrollReveal>
-          <h2 className="text-[clamp(2rem,8vw,7rem)] font-bold uppercase tracking-tighter leading-[0.85]">
-            LET&apos;S CREATE
+          <h2 className="text-[clamp(2rem,6vw,5rem)] font-bold uppercase tracking-tighter leading-[0.85]">
+            CHOOSE A CREATIVE
             <br />
-            SOMETHING{" "}
-            <span className="text-accent">BOLD</span>
+            SOLUTION FOR YOUR
+            <br />
+            BUSINESSES,{" "}
+            <span className="text-accent">STAND OUT!</span>
           </h2>
         </ScrollReveal>
 
