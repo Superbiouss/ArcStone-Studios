@@ -5,16 +5,15 @@ import Marquee from "react-fast-marquee";
 
 const footerLinks = {
   services: [
-    { label: "Brand Strategy", href: "#services" },
-    { label: "UI/UX Design", href: "#services" },
-    { label: "Web Development", href: "#services" },
-    { label: "Motion Design", href: "#services" },
+    { label: "Design Board", href: "#services" },
+    { label: "Super Fast Delivery", href: "#services" },
+    { label: "Unique & Distinct", href: "#services" },
   ],
   company: [
     { label: "About", href: "#about" },
     { label: "Work", href: "#work" },
     { label: "Process", href: "#process" },
-    { label: "Careers", href: "#" },
+    { label: "Testimonials", href: "#testimonials" },
   ],
   social: [
     { label: "Instagram", href: "https://www.instagram.com/arcstonestudios.in?igsh=Ym00OGJ1dzNuZDc1" },

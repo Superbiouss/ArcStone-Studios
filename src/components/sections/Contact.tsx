@@ -1,3 +1,5 @@
+"use client";
+
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { Button } from "@/components/ui/Button";
 
@@ -17,7 +19,14 @@ export function Contact() {
         </ScrollReveal>
 
         <div className="mt-12 md:mt-20 max-w-4xl">
-          <form className="space-y-0">
+          <form 
+            className="space-y-0" 
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert("Thank you for reaching out! We'll get back to you shortly.");
+              (e.target as HTMLFormElement).reset();
+            }}
+          >
             <ScrollReveal delay={0.1}>
               <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
                 <input

@@ -27,7 +27,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-20 md:py-32 border-t-2 border-border">
+    <section id="testimonials" className="py-20 md:py-32 border-t-2 border-border overflow-hidden">
       <div className="mx-auto max-w-[95vw] mb-12 md:mb-16">
         <ScrollReveal>
           <SectionHeading

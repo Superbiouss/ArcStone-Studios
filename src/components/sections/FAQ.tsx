@@ -32,7 +32,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section className="py-20 md:py-32 border-t-2 border-border">
+    <section id="faq" className="py-20 md:py-32 border-t-2 border-border">
       <div className="mx-auto max-w-[95vw]">
         <ScrollReveal>
           <SectionHeading

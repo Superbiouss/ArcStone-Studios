@@ -78,12 +78,12 @@ export function Hero() {
             className="flex flex-col sm:flex-row gap-4"
           >
             <MagneticButton>
-              <Button variant="primary" size="lg" className="w-full sm:w-auto">
+              <Button variant="primary" size="lg" className="w-full sm:w-auto" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                 Start a Project
               </Button>
             </MagneticButton>
             <MagneticButton>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto" onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}>
                 View Work
               </Button>
             </MagneticButton>
