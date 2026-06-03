@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Marquee from "react-fast-marquee";
 
 const footerLinks = {
   services: [
@@ -31,7 +32,17 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-accent text-accent-foreground border-t-2 border-accent-foreground/20">
+    <footer className="bg-accent text-accent-foreground border-t-2 border-accent-foreground/20 overflow-hidden">
+      <div className="py-8 md:py-12 border-b-2 border-accent-foreground/20">
+        <Marquee speed={80} gradient={false} autoFill>
+          <span 
+            className="text-[clamp(4rem,10vw,8rem)] font-bold uppercase tracking-tighter leading-none mx-8 text-transparent opacity-80" 
+            style={{ WebkitTextStroke: "2px currentColor" }}
+          >
+            LET'S WORK TOGETHER ✦ HAVE A PROJECT IN MIND? ✦ 
+          </span>
+        </Marquee>
+      </div>
       <div className="mx-auto max-w-[95vw] py-16 md:py-24">
         {/* Giant wordmark */}
         <div className="mb-16 md:mb-24 flex items-center gap-4 md:gap-8">

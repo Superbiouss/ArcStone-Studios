@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { NoiseTexture } from "@/components/ui/NoiseTexture";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -54,6 +55,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
           <NoiseTexture />
+          <CustomCursor />
         </ThemeProvider>
       </body>
     </html>

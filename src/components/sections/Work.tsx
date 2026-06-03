@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { HoverBadgeWrapper } from "@/components/motion/HoverBadgeWrapper";
 import Image from "next/image";
 
 const projects = [
@@ -52,13 +53,15 @@ export function Work() {
             >
               <div className="group bg-background overflow-hidden cursor-pointer h-full">
                 {/* Project Image */}
-                <div className="aspect-[4/3] w-full relative overflow-hidden bg-muted">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                <div className="aspect-[4/3] w-full relative bg-muted">
+                  <HoverBadgeWrapper text="View Project">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </HoverBadgeWrapper>
                 </div>
 
                 {/* Project Info */}
