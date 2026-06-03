@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { AnimatePresence, motion } from "motion/react";
 
@@ -22,9 +23,16 @@ export function Navbar() {
           {/* Logo */}
           <a
             href="#"
-            className="text-xl md:text-2xl font-bold uppercase tracking-tighter text-foreground hover:text-accent transition-colors"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            ArcStone
+            <Image
+              src="/logos/arcstone-white.png"
+              alt="ArcStone Studios"
+              width={180}
+              height={40}
+              className="h-8 md:h-10 w-auto object-contain"
+              priority
+            />
           </a>
 
           {/* Desktop Nav */}

@@ -1,26 +1,32 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import Image from "next/image";
 
 const projects = [
   {
-    title: "Neon Collective",
+    title: "Airia Mall",
     category: "Branding & Web",
-    color: "#1a1a2e",
+    image: "/images/airia.jpeg",
   },
   {
-    title: "Vortex Labs",
+    title: "North India Mall",
     category: "UI/UX Design",
-    color: "#16213e",
+    image: "/images/nim.jpg",
   },
   {
-    title: "Pulse Audio",
+    title: "Kopa Mall",
     category: "Web Development",
-    color: "#0f3460",
+    image: "/images/kopa.webp",
   },
   {
-    title: "Iron & Oak",
+    title: "Lake Shore",
     category: "Creative Direction",
-    color: "#1a1a1a",
+    image: "/images/lake-shore.jpeg",
+  },
+  {
+    title: "Saffronart",
+    category: "Digital Experience",
+    image: "/images/saffronart.webp",
   },
 ];
 
@@ -41,22 +47,16 @@ export function Work() {
           {projects.map((project, i) => (
             <ScrollReveal key={project.title} delay={i * 0.1}>
               <div className="group bg-background overflow-hidden cursor-pointer">
-                {/* Project Image Placeholder */}
-                <div
-                  className="aspect-[4/3] w-full relative overflow-hidden"
-                  style={{ backgroundColor: project.color }}
-                >
-                  {/* Abstract decorative element instead of placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span
-                      className="text-[8rem] md:text-[12rem] font-bold text-white/5 select-none leading-none tracking-tighter uppercase"
-                      aria-hidden="true"
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                  </div>
+                {/* Project Image */}
+                <div className="aspect-[4/3] w-full relative overflow-hidden bg-muted">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/20 transition-colors duration-300" />
                 </div>
 
                 {/* Project Info */}
