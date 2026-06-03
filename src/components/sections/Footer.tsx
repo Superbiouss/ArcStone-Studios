@@ -17,10 +17,8 @@ const footerLinks = {
     { label: "Careers", href: "#" },
   ],
   social: [
-    { label: "Twitter / X", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Dribbble", href: "#" },
+    { label: "Instagram", href: "https://www.instagram.com/arcstonestudios.in?igsh=Ym00OGJ1dzNuZDc1" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/arcstone-studios/" },
   ],
   legal: [
     { label: "Privacy Policy", href: "#" },
