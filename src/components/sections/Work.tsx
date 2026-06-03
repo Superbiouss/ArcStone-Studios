@@ -59,8 +59,6 @@ export function Work() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/20 transition-colors duration-300" />
                 </div>
 
                 {/* Project Info */}

@@ -21,7 +21,7 @@ export function ParallaxHero({ children, className = "" }: ParallaxHeroProps) {
 
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`}>
-      <motion.div style={{ scale, opacity }}>
+      <motion.div style={{ scale, opacity }} className="w-full">
         {children}
       </motion.div>
     </div>
