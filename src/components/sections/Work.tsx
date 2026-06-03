@@ -98,7 +98,7 @@ function ProjectImage({ image, title }: { image: string; title: string }) {
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <div ref={ref} className="aspect-[4/3] w-full relative bg-muted overflow-hidden">
+    <div ref={ref} data-cursor="view" className="aspect-[4/3] w-full relative bg-muted overflow-hidden">
       <HoverBadgeWrapper text="View Project">
         <motion.div
           style={{ y, width: "100%", height: "120%", position: "absolute", top: "-10%" }}

@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring } from "motion/react";
 
 export function CustomCursor() {
   const [mounted, setMounted] = useState(false);
-  const [isPointer, setIsPointer] = useState(false);
+  const [cursorState, setCursorState] = useState<"default" | "pointer" | "view">("default");
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -23,21 +23,26 @@ export function CustomCursor() {
     }
 
     const handleMouseMove = (e: MouseEvent) => {
+      // Offset by half of base size (20px / 2 = 10px) to center it.
+      // We will handle centering via CSS transform origin or translate
       mouseX.set(e.clientX - 10);
       mouseY.set(e.clientY - 10);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
+      
+      if (target.closest('[data-cursor="view"]')) {
+        setCursorState("view");
+      } else if (
         target.closest("a") || 
         target.closest("button") || 
         target.closest(".cursor-pointer") ||
         window.getComputedStyle(target).cursor === "pointer"
       ) {
-        setIsPointer(true);
+        setCursorState("pointer");
       } else {
-        setIsPointer(false);
+        setCursorState("default");
       }
     };
 
@@ -55,16 +60,28 @@ export function CustomCursor() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-5 h-5 bg-white rounded-full pointer-events-none z-[10000] mix-blend-difference"
+      className="fixed top-0 left-0 flex items-center justify-center bg-white rounded-full pointer-events-none z-[10000] mix-blend-difference"
       style={{
         x: cursorX,
         y: cursorY,
+        width: 20,
+        height: 20,
       }}
       animate={{
-        scale: isPointer ? 2.5 : 1,
+        scale: cursorState === "view" ? 4 : cursorState === "pointer" ? 2.5 : 1,
         opacity: 1,
       }}
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
-    />
+    >
+      {cursorState === "view" && (
+        <motion.span 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-[5px] font-black tracking-widest text-black"
+        >
+          VIEW
+        </motion.span>
+      )}
+    </motion.div>
   );
 }

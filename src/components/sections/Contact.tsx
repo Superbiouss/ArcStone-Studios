@@ -1,12 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { Button } from "@/components/ui/Button";
 import { toast } from "sonner";
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          document.body.classList.add("yellow-theme");
+        } else {
+          document.body.classList.remove("yellow-theme");
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+      document.body.classList.remove("yellow-theme");
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,7 +62,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 border-t-2 border-border">
+    <section ref={sectionRef} id="contact" className="py-20 md:py-32 border-t-2 border-border transition-colors duration-1000">
       <div className="mx-auto max-w-[95vw]">
         <ScrollReveal>
           <h2 className="text-[clamp(2rem,6vw,5rem)] font-bold uppercase tracking-tighter leading-[0.85]">

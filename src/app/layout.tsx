@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { NoiseTexture } from "@/components/ui/NoiseTexture";
+import { Preloader } from "@/components/ui/Preloader";
 import { Toaster } from "sonner";
 import "./globals.css";
 
@@ -62,17 +64,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} antialiased`} suppressHydrationWarning>
       <body className="min-h-screen overflow-x-hidden">
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
-          <NoiseTexture />
-          <CustomCursor />
-          <Toaster 
-            position="bottom-right"
-            toastOptions={{
-              className: 'border-2 border-border rounded-none bg-background text-foreground font-bold uppercase tracking-widest',
-            }}
-          />
-        </ThemeProvider>
+        <SmoothScrollProvider>
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <Preloader />
+            {children}
+            <NoiseTexture />
+            <CustomCursor />
+            <Toaster 
+              position="bottom-right"
+              toastOptions={{
+                className: 'border-2 border-border rounded-none bg-background text-foreground font-bold uppercase tracking-widest',
+              }}
+            />
+          </ThemeProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );
