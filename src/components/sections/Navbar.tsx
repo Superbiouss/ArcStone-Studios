@@ -34,16 +34,19 @@ export function Navbar() {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
+            className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity cursor-pointer"
           >
             <Image
-              src={isDark ? "/logos/arcstone-white.png" : "/logos/arcstone-final.jpg"}
-              alt="ArcStone Studios"
-              width={200}
-              height={50}
-              className="h-10 md:h-12 w-auto object-contain"
+              src="/logos/arcstone-icon.png"
+              alt="ArcStone Icon"
+              width={48}
+              height={48}
+              className="h-8 w-8 md:h-10 md:w-10 object-contain invert dark:invert-0"
               priority
             />
+            <span className="font-bold uppercase tracking-tighter text-xl md:text-2xl text-foreground">
+              ArcStone Studios
+            </span>
           </button>
 
           {/* Desktop Nav */}
