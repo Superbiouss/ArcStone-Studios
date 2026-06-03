@@ -21,7 +21,7 @@ const GlobeIcon = ({ className = "w-4 h-4" }) => (
 
 const projects = [
   {
-    title: "Airia Mall",
+    title: "Aria Mall",
     category: "Branding & Web",
     image: "/images/airia.jpeg",
     socials: [
@@ -30,16 +30,25 @@ const projects = [
     ],
   },
   {
-    title: "Capital Mall Vasai",
-    category: "UI/UX Design",
-    image: "/images/nim.jpg",
+    title: "The Capital",
+    category: "Digital Experience",
+    image: "/images/the-capital-mall.jpg",
     socials: [
       { type: "instagram", url: "https://www.instagram.com/capitalmallvasai?igsh=cmRrM2Y5bmU0bWV1" },
       { type: "website", url: "#" },
     ],
   },
   {
-    title: "Kopa Mall",
+    title: "North India Mall",
+    category: "UI/UX Design",
+    image: "/images/nim.jpg",
+    socials: [
+      { type: "instagram", url: "#" },
+      { type: "website", url: "#" },
+    ],
+  },
+  {
+    title: "COPA Pune",
     category: "Web Development",
     image: "/images/kopa.webp",
     socials: [
@@ -48,11 +57,20 @@ const projects = [
     ],
   },
   {
-    title: "Lake Shore",
+    title: "Y Junction",
     category: "Creative Direction",
     image: "/images/lake-shore.jpeg",
     socials: [
       { type: "instagram", url: "https://www.instagram.com/lakeshoreyjunction?igsh=MXViZ2J6M3M4d3pyMA==" },
+      { type: "website", url: "#" },
+    ],
+  },
+  {
+    title: "LS Thane",
+    category: "Brand Strategy",
+    image: "/images/lake-shore-mall.webp",
+    socials: [
+      { type: "instagram", url: "#" },
       { type: "website", url: "#" },
     ],
   },
