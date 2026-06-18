@@ -6,6 +6,7 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import { NoiseTexture } from "@/components/ui/NoiseTexture";
 import { Preloader } from "@/components/ui/Preloader";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -76,6 +77,7 @@ export default function RootLayout({
                 className: 'border-2 border-border rounded-none bg-background text-foreground font-bold uppercase tracking-widest',
               }}
             />
+            <Analytics />
           </ThemeProvider>
         </SmoothScrollProvider>
       </body>
