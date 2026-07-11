@@ -3,11 +3,6 @@ export interface NavLink {
   href: string;
 }
 
-export interface SocialLink {
-  type: "instagram" | "website" | "linkedin";
-  url: string;
-}
-
 export interface ProjectSocial {
   type: "instagram" | "website";
   url: string;
