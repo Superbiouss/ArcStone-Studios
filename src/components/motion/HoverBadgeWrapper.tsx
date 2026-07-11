@@ -29,7 +29,7 @@ export function HoverBadgeWrapper({ children, text }: HoverBadgeWrapperProps) {
   return (
     <div
       ref={ref}
-      className="relative w-full h-full overflow-hidden cursor-none"
+      className="relative w-full h-full overflow-hidden cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}

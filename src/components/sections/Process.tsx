@@ -1,26 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
-
-const steps = [
-  {
-    number: "01",
-    title: "Discover",
-    description:
-      "We immerse ourselves in your world — your brand, audience, competitors, and goals. Deep research fuels sharp strategy.",
-  },
-  {
-    number: "02",
-    title: "Design",
-    description:
-      "From wireframes to high-fidelity prototypes, we craft every pixel with intention. Bold concepts refined through iteration.",
-  },
-  {
-    number: "03",
-    title: "Deliver",
-    description:
-      "Clean code, smooth animations, flawless performance. We build it right, launch it strong, and support it after.",
-  },
-];
+import { processSteps } from "@/data/site-content";
 
 export function Process() {
   return (
@@ -34,9 +14,8 @@ export function Process() {
           />
         </ScrollReveal>
 
-        {/* Three-column grid with hairline dividers */}
         <div className="mt-16 md:mt-24 bg-border grid md:grid-cols-3 gap-px">
-          {steps.map((step, i) => (
+          {processSteps.map((step, i) => (
             <ScrollReveal key={step.number} delay={i * 0.15}>
               <div className="group bg-background p-8 md:p-12 hover:bg-accent hover:text-accent-foreground transition-colors duration-300 h-full">
                 <span

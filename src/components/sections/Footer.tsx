@@ -2,28 +2,8 @@
 
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-
-const footerLinks = {
-  services: [
-    { label: "Design Board", href: "#services" },
-    { label: "Super Fast Delivery", href: "#services" },
-    { label: "Unique & Distinct", href: "#services" },
-  ],
-  company: [
-    { label: "About", href: "#about" },
-    { label: "Work", href: "#work" },
-    { label: "Process", href: "#process" },
-    { label: "Testimonials", href: "#testimonials" },
-  ],
-  social: [
-    { label: "Instagram", href: "https://www.instagram.com/arcstonestudios.in?igsh=Ym00OGJ1dzNuZDc1" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/company/arcstone-studios/" },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-  ],
-};
+import { footerLinks } from "@/data/site-content";
+import { siteConfig } from "@/config/site";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -36,7 +16,7 @@ export function Footer() {
             className="text-[clamp(4rem,10vw,8rem)] font-bold uppercase tracking-tighter leading-none mx-8 text-transparent opacity-80" 
             style={{ WebkitTextStroke: "2px currentColor" }}
           >
-            LET'S WORK TOGETHER ✦ HAVE A PROJECT IN MIND? ✦ 
+            LET&apos;S WORK TOGETHER ✦ HAVE A PROJECT IN MIND? ✦ 
           </span>
         </Marquee>
       </div>
@@ -45,19 +25,19 @@ export function Footer() {
         <div className="mb-16 md:mb-24 flex items-center gap-4 md:gap-8">
           <Image
             src="/logos/arcstone-icon.png"
-            alt="ArcStone Icon"
+            alt={`${siteConfig.name} Icon`}
             width={120}
             height={120}
             className="w-16 h-16 md:w-32 md:h-32 object-contain"
           />
           <p className="text-[clamp(3rem,8vw,10rem)] font-bold uppercase tracking-tighter leading-none text-accent-foreground">
-            ArcStone Studios
+            {siteConfig.name}
           </p>
         </div>
 
         {/* Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16 md:mb-24">
-          {Object.entries(footerLinks).map(([category, links]) => (
+          {(Object.entries(footerLinks) as [string, { label: string; href: string }[]][]).map(([category, links]) => (
             <div key={category}>
               <h4 className="text-sm font-bold uppercase tracking-widest mb-4 md:mb-6 text-accent-foreground/60">
                 {category}
@@ -81,7 +61,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t-2 border-accent-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-sm uppercase tracking-wide text-accent-foreground/60">
-            &copy; {currentYear} ArcStone Studios. All rights reserved.
+            &copy; {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

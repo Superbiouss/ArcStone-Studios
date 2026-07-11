@@ -6,88 +6,8 @@ import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { HoverBadgeWrapper } from "@/components/motion/HoverBadgeWrapper";
 import { useScroll, useTransform, motion } from "motion/react";
 import Image from "next/image";
-
-const InstagramIcon = ({ className = "w-4 h-4" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-  </svg>
-);
-
-const GlobeIcon = ({ className = "w-4 h-4" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <circle cx="12" cy="12" r="10"></circle>
-    <line x1="2" y1="12" x2="22" y2="12"></line>
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-  </svg>
-);
-
-const projects = [
-  {
-    title: "Aria Mall",
-    category: "Branding & Web",
-    image: "/images/airia.jpeg",
-    socials: [
-      { type: "instagram", url: "https://www.instagram.com/airiamall?igsh=MW13ZWFyZWxlMW4yMA==" },
-      { type: "website", url: "#" },
-    ],
-  },
-  {
-    title: "The Capital",
-    category: "Digital Experience",
-    image: "/images/the-capital-mall.jpg",
-    socials: [
-      { type: "instagram", url: "https://www.instagram.com/capitalmallvasai?igsh=cmRrM2Y5bmU0bWV1" },
-      { type: "website", url: "#" },
-    ],
-  },
-  {
-    title: "North India Mall",
-    category: "UI/UX Design",
-    image: "/images/nim.jpg",
-    socials: [
-      { type: "instagram", url: "#" },
-      { type: "website", url: "#" },
-    ],
-  },
-  {
-    title: "COPA Pune",
-    category: "Web Development",
-    image: "/images/kopa.webp",
-    socials: [
-      { type: "instagram", url: "https://www.instagram.com/kopapune?igsh=ZnBzbHR4eXdzMXd2" },
-      { type: "website", url: "#" },
-    ],
-  },
-  {
-    title: "Y Junction",
-    category: "Creative Direction",
-    image: "/images/lake-shore.jpeg",
-    socials: [
-      { type: "instagram", url: "https://www.instagram.com/lakeshoreyjunction?igsh=MXViZ2J6M3M4d3pyMA==" },
-      { type: "website", url: "#" },
-    ],
-  },
-  {
-    title: "LS Thane",
-    category: "Brand Strategy",
-    image: "/images/lake-shore-mall.webp",
-    socials: [
-      { type: "instagram", url: "#" },
-      { type: "website", url: "#" },
-    ],
-  },
-  {
-    title: "Saffronart",
-    category: "Digital Experience",
-    image: "/images/saffronart.webp",
-    socials: [
-      { type: "instagram", url: "https://www.instagram.com/saffronartindia?igsh=MTc4YzFjZ3JvcmFyNw==" },
-      { type: "website", url: "#" },
-    ],
-  },
-];
+import { projects } from "@/data/site-content";
+import { InstagramIcon, GlobeIcon } from "@/components/icons";
 
 function ProjectImage({ image, title }: { image: string; title: string }) {
   const ref = useRef(null);
@@ -98,7 +18,7 @@ function ProjectImage({ image, title }: { image: string; title: string }) {
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <div ref={ref} data-cursor="view" className="aspect-[4/3] w-full relative bg-muted overflow-hidden">
+    <div ref={ref} className="aspect-[4/3] w-full relative bg-muted overflow-hidden">
       <HoverBadgeWrapper text="View Project">
         <motion.div
           style={{ y, width: "100%", height: "120%", position: "absolute", top: "-10%" }}

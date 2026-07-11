@@ -1,31 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { AnimatePresence, motion } from "motion/react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { useTheme } from "next-themes";
-
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
-];
+import { navLinks } from "@/data/site-content";
+import { siteConfig } from "@/config/site";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme } = useTheme();
-
-  // Prevent hydration mismatch for theme-dependent UI
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const isDark = !mounted || resolvedTheme === "dark"; // Default to dark on server
 
   return (
     <>
@@ -38,14 +22,14 @@ export function Navbar() {
           >
             <Image
               src="/logos/arcstone-icon.png"
-              alt="ArcStone Icon"
+              alt={`${siteConfig.name} Icon`}
               width={48}
               height={48}
               className="h-8 w-8 md:h-10 md:w-10 object-contain invert dark:invert-0"
               priority
             />
             <span className="font-bold uppercase tracking-tighter text-xl md:text-2xl text-foreground">
-              ArcStone Studios
+              {siteConfig.name}
             </span>
           </button>
 

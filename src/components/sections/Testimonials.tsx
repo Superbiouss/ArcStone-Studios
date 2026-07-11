@@ -3,27 +3,7 @@
 import Marquee from "react-fast-marquee";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
-
-const testimonials = [
-  {
-    quote:
-      "Working with Crate is like having a dedicated squad of tech wizards and branding experts at my fingertips. And believe it or not, the value they bring is priceless.",
-    name: "Williams Paul",
-    company: "HR, Greenish",
-  },
-  {
-    quote:
-      "It's as if I have a full squad of internet experts and advertising professionals on my side, and the highlight? It didn't charge me a single penny",
-    name: "Adam Kary",
-    company: "Creative Lead, Cloud",
-  },
-  {
-    quote:
-      "It feels like I’ve got an entire team of web gurus and marketing pros working for me, and the best part? It didn’t cost me a cent.",
-    name: "Chris Waterwood",
-    company: "VP, Minty",
-  },
-];
+import { testimonials } from "@/data/site-content";
 
 export function Testimonials() {
   return (

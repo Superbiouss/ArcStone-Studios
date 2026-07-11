@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { NoiseTexture } from "@/components/ui/NoiseTexture";
 import { Preloader } from "@/components/ui/Preloader";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next";
+import { seoMetadata } from "@/config/site";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -16,41 +15,8 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://arcstonestudio.in"),
-  title: "ArcStone Studios | Creative Agency",
-  description:
-    "We craft unmistakable digital experiences and identity systems. Stop settling for unpredictable freelancers.",
-  keywords: [
-    "creative agency",
-    "digital design",
-    "web development",
-    "branding",
-    "UI/UX design",
-    "motion design",
-  ],
-  openGraph: {
-    title: "ArcStone Studios — Bold Digital Experiences",
-    description:
-      "Strategy, design, and development for brands that refuse to blend in.",
-    type: "website",
-    locale: "en_US",
-    siteName: "ArcStone Studios",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "ArcStone Studios Preview",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ArcStone Studios — Bold Digital Experiences",
-    description:
-      "Strategy, design, and development for brands that refuse to blend in.",
-  },
+export const metadata = {
+  ...seoMetadata,
   robots: {
     index: true,
     follow: true,
@@ -70,7 +36,6 @@ export default function RootLayout({
             <Preloader />
             {children}
             <NoiseTexture />
-            <CustomCursor />
             <Toaster 
               position="bottom-right"
               toastOptions={{

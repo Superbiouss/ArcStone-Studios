@@ -1,13 +1,7 @@
 "use client";
 
 import Marquee from "react-fast-marquee";
-
-const stats = [
-  { number: "150+", label: "Projects Delivered" },
-  { number: "98%", label: "Client Retention" },
-  { number: "12", label: "Countries Reached" },
-  { number: "8+", label: "Years of Craft" },
-];
+import { stats } from "@/data/site-content";
 
 export function StatsMarquee() {
   return (

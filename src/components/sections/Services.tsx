@@ -1,26 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
-
-const services = [
-  {
-    number: "01",
-    title: "Design Board",
-    description:
-      "Access an informative design collaboration tool for easy project tracking.",
-  },
-  {
-    number: "02",
-    title: "Super Fast Delivery",
-    description:
-      "Unlock a seamless design experience, where each design is crafted and delivered in days.",
-  },
-  {
-    number: "03",
-    title: "Unique & Distinct",
-    description:
-      "Every design we create is uniquely tailored to your needs and remains 100% yours.",
-  },
-];
+import { services } from "@/data/site-content";
 
 export function Services() {
   return (

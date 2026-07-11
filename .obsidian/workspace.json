@@ -177,5 +177,13 @@
     }
   },
   "active": "e7953581a50721c9",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "src/components/icons.tsx",
+    "src/data/site-content.ts",
+    "src/data",
+    "src/config/site.ts",
+    "src/config",
+    "src/types/index.ts",
+    "src/types"
+  ]
 }
