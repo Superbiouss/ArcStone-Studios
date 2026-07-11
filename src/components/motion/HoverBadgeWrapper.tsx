@@ -38,7 +38,7 @@ export function HoverBadgeWrapper({ children, text }: HoverBadgeWrapperProps) {
       
       {/* Hidden on touch devices via media query */}
       <motion.div
-        className="pointer-events-none absolute left-0 top-0 hidden md:flex w-20 h-20 bg-accent text-accent-foreground font-bold uppercase tracking-tighter rounded-full items-center justify-center text-center text-xs leading-tight shadow-xl z-20 mix-blend-normal"
+        className="pointer-events-none absolute left-0 top-0 hidden md:flex w-20 h-20 bg-accent text-accent-foreground font-bold uppercase tracking-tighter items-center justify-center text-center text-xs leading-tight z-20 border-2 border-accent-foreground/20"
         style={{
           x: badgeX,
           y: badgeY,

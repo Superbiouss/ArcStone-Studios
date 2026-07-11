@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 type Direction = "up" | "left" | "right";
 
@@ -25,7 +26,12 @@ export function ScrollReveal({
   delay = 0,
   duration = 0.6,
 }: ScrollRevealProps) {
+  const prefersReducedMotion = useReducedMotion();
   const offset = offsets[direction];
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div

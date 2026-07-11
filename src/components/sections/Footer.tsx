@@ -43,16 +43,20 @@ export function Footer() {
                 {category}
               </h4>
               <ul className="space-y-2 md:space-y-3">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm md:text-base uppercase tracking-wide text-accent-foreground/80 hover:text-accent-foreground hover:underline underline-offset-4 transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+                {links.map((link) => {
+                  const isExternal = link.href.startsWith("http");
+                  return (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
+                        className="text-sm md:text-base uppercase tracking-wide text-accent-foreground/80 hover:text-accent-foreground hover:underline underline-offset-4 transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

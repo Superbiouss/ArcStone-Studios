@@ -19,8 +19,8 @@ export function Services() {
           {services.map((service, i) => (
             <div
               key={service.number}
-              className="sticky top-20 md:top-24"
-              style={{ zIndex: i + 1 }}
+              className="sticky"
+              style={{ zIndex: i + 1, top: `${80 + i * 16}px` }}
             >
               <div className="group border-2 border-border bg-background p-8 md:p-12 hover:bg-accent hover:border-accent transition-colors duration-300 cursor-default">
                 <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">

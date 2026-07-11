@@ -100,9 +100,9 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-5 h-8 border-2 border-border rounded-full flex justify-center pt-1.5"
+            className="w-5 h-8 border-2 border-border flex justify-center pt-1.5"
           >
-            <div className="w-1 h-1.5 bg-accent rounded-full" />
+            <div className="w-1 h-1.5 bg-accent" />
           </motion.div>
           <span className="text-xs uppercase tracking-widest text-muted-foreground">
             Scroll to explore

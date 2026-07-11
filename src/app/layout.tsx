@@ -5,7 +5,7 @@ import { NoiseTexture } from "@/components/ui/NoiseTexture";
 import { Preloader } from "@/components/ui/Preloader";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next";
-import { seoMetadata } from "@/config/site";
+import { seoMetadata, jsonLd } from "@/config/site";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,6 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} antialiased`} suppressHydrationWarning>
       <body className="min-h-screen overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <SmoothScrollProvider>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <Preloader />

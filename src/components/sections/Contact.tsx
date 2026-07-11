@@ -41,6 +41,7 @@ export function Contact() {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
       message: formData.get("message") as string,
+      website: formData.get("website") as string, // honeypot
     };
     
     try {
@@ -56,7 +57,8 @@ export function Contact() {
         toast.success("Message sent successfully! We'll be in touch soon.");
         form.reset();
       } else {
-        toast.error("Oops! Something went wrong. Please try again.");
+        const result = await response.json();
+        toast.error(result.error || "Oops! Something went wrong. Please try again.");
       }
     } catch {
       toast.error("Oops! Something went wrong. Please check your connection.");
@@ -84,8 +86,21 @@ export function Contact() {
             className="space-y-0" 
             onSubmit={handleSubmit}
           >
+            {/* Honeypot field — invisible to real users, bots will fill it */}
+            <div className="absolute -left-[9999px]" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                type="text"
+                name="website"
+                id="website"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
             <ScrollReveal delay={0.1}>
               <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
+                <label htmlFor="contact-name" className="sr-only">Your Name</label>
                 <input
                   type="text"
                   name="name"
@@ -99,6 +114,7 @@ export function Contact() {
 
             <ScrollReveal delay={0.2}>
               <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
+                <label htmlFor="contact-email" className="sr-only">Your Email</label>
                 <input
                   type="email"
                   name="email"
@@ -112,11 +128,12 @@ export function Contact() {
 
             <ScrollReveal delay={0.3}>
               <div className="border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
+                <label htmlFor="contact-message" className="sr-only">Project Details</label>
                 <textarea
                   name="message"
                   placeholder="TELL US ABOUT YOUR PROJECT"
                   rows={3}
-                  className="w-full bg-transparent text-2xl md:text-4xl font-bold uppercase tracking-tighter text-foreground placeholder:text-muted px-0 py-6 md:py-8 outline-none resize-none"
+                  className="w-full bg-transparent text-2xl md:text-4xl font-bold tracking-tighter text-foreground placeholder:text-muted placeholder:uppercase px-0 py-6 md:py-8 outline-none resize-none"
                   required
                   id="contact-message"
                 />

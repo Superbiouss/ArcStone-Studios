@@ -23,6 +23,12 @@ export const seoMetadata = {
   title: `${siteConfig.name} | Creative Agency`,
   description: siteConfig.description,
   keywords: siteConfig.keywords,
+  other: {
+    "theme-color": [
+      { media: "(prefers-color-scheme: dark)", color: "#09090B" },
+      { media: "(prefers-color-scheme: light)", color: "#FAFAFA" },
+    ],
+  },
   openGraph: {
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: "Strategy, design, and development for brands that refuse to blend in.",
@@ -44,3 +50,21 @@ export const seoMetadata = {
     description: "Strategy, design, and development for brands that refuse to blend in.",
   },
 };
+
+/**
+ * JSON-LD Structured Data for Organization schema.
+ * Embed in layout.tsx via a <script type="application/ld+json"> tag.
+ */
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  foundingDate: String(siteConfig.establishedYear),
+  sameAs: [
+    "https://www.instagram.com/arcstonestudios.in",
+    "https://www.linkedin.com/company/arcstone-studios/",
+  ],
+};
+

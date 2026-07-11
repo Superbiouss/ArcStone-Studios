@@ -1,7 +1,20 @@
 /**
+ * Escapes HTML special characters to prevent XSS/HTML injection in email templates.
+ */
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+/**
  * HTML Email template sent to the prospective client who submitted the contact form.
  */
-export function getClientEmailTemplate(name: string): string {
+export function getClientEmailTemplate(rawName: string): string {
+  const name = escapeHtml(rawName);
   const brandYellow = "#DFE104";
   const brandBlack = "#09090B";
   const brandWhite = "#FAFAFA";
@@ -110,7 +123,10 @@ export function getClientEmailTemplate(name: string): string {
 /**
  * HTML Email template sent to the ArcStone Studio team when a contact form is submitted.
  */
-export function getAdminEmailTemplate(name: string, email: string, message: string): string {
+export function getAdminEmailTemplate(rawName: string, rawEmail: string, rawMessage: string): string {
+  const name = escapeHtml(rawName);
+  const email = escapeHtml(rawEmail);
+  const message = escapeHtml(rawMessage);
   const brandYellow = "#DFE104";
   const brandBlack = "#09090B";
   const brandWhite = "#FAFAFA";

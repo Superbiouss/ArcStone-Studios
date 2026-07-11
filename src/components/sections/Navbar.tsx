@@ -10,6 +10,7 @@ import { siteConfig } from "@/config/site";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   // Lock body scroll when mobile menu is open to prevent background scrolling
   useEffect(() => {
@@ -23,6 +24,38 @@ export function Navbar() {
     };
   }, [isMenuOpen]);
 
+  // Track active section via IntersectionObserver
+  useEffect(() => {
+    const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { rootMargin: "-30% 0px -60% 0px" }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, []);
+
+  const scrollToContact = () => {
+    setIsMenuOpen(false);
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 border-b-2 border-border bg-background/80 backdrop-blur-md">
@@ -33,7 +66,7 @@ export function Navbar() {
             className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity cursor-pointer"
           >
             <Image
-              src="/logos/only-icon.png"
+              src="/logos/arcstone-icon.png"
               alt={`${siteConfig.name} Icon`}
               width={48}
               height={48}
@@ -47,17 +80,25 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium uppercase tracking-wide text-muted-foreground hover:text-accent transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace("#", "");
+              const isActive = activeSection === sectionId;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`text-sm font-medium uppercase tracking-wide transition-colors duration-200 ${
+                    isActive
+                      ? "text-accent"
+                      : "text-muted-foreground hover:text-accent"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
             <ThemeToggle />
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="sm" onClick={scrollToContact}>
               Let&apos;s Talk
             </Button>
           </div>
@@ -70,16 +111,19 @@ export function Navbar() {
             aria-expanded={isMenuOpen}
           >
             <span
+              aria-hidden="true"
               className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
                 isMenuOpen ? "rotate-45 translate-y-2" : ""
               }`}
             />
             <span
+              aria-hidden="true"
               className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
                 isMenuOpen ? "opacity-0" : ""
               }`}
             />
             <span
+              aria-hidden="true"
               className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
                 isMenuOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
@@ -128,7 +172,7 @@ export function Navbar() {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={scrollToContact}
               >
                 Let&apos;s Talk
               </Button>
@@ -139,3 +183,4 @@ export function Navbar() {
     </>
   );
 }
+

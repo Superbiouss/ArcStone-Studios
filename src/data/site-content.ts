@@ -15,7 +15,6 @@ export const projects: Project[] = [
     image: "/images/airia.jpeg",
     socials: [
       { type: "instagram", url: "https://www.instagram.com/airiamall?igsh=MW13ZWFyZWxlMW4yMA==" },
-      { type: "website", url: "#" },
     ],
   },
   {
@@ -24,17 +23,12 @@ export const projects: Project[] = [
     image: "/images/the-capital-mall.jpg",
     socials: [
       { type: "instagram", url: "https://www.instagram.com/capitalmallvasai?igsh=cmRrM2Y5bmU0bWV1" },
-      { type: "website", url: "#" },
     ],
   },
   {
     title: "North India Mall",
     category: "UI/UX Design",
     image: "/images/nim.jpg",
-    socials: [
-      { type: "instagram", url: "#" },
-      { type: "website", url: "#" },
-    ],
   },
   {
     title: "COPA Pune",
@@ -42,7 +36,6 @@ export const projects: Project[] = [
     image: "/images/kopa.webp",
     socials: [
       { type: "instagram", url: "https://www.instagram.com/kopapune?igsh=ZnBzbHR4eXdzMXd2" },
-      { type: "website", url: "#" },
     ],
   },
   {
@@ -51,17 +44,12 @@ export const projects: Project[] = [
     image: "/images/lake-shore.jpeg",
     socials: [
       { type: "instagram", url: "https://www.instagram.com/lakeshoreyjunction?igsh=MXViZ2J6M3M4d3pyMA==" },
-      { type: "website", url: "#" },
     ],
   },
   {
     title: "LS Thane",
     category: "Brand Strategy",
     image: "/images/lake-shore-mall.webp",
-    socials: [
-      { type: "instagram", url: "#" },
-      { type: "website", url: "#" },
-    ],
   },
   {
     title: "Saffronart",
@@ -69,36 +57,35 @@ export const projects: Project[] = [
     image: "/images/saffronart.webp",
     socials: [
       { type: "instagram", url: "https://www.instagram.com/saffronartindia?igsh=MTc4YzFjZ3JvcmFyNw==" },
-      { type: "website", url: "#" },
     ],
   },
 ];
 
 export const faqs: FAQItem[] = [
   {
-    question: "What is haven about?",
+    question: "What services does ArcStone Studios offer?",
     answer:
-      "Sincerely, it is as though you have a pair of spectacles enabling you to see deeper into problems man longs to dissipate and solve. And luckily for any man who reads you, he will get the answers to his worries except he still isn't ready to tackle himself. Kudos! Keep the ball rolling.",
+      "We specialize in brand identity systems, UI/UX design, web development, motion design, and creative direction. From strategy to launch, we handle every pixel of your digital presence.",
   },
   {
-    question: "What are the criteria to become a writer?",
+    question: "How long does a typical project take?",
     answer:
-      "Friends who talk about cryptocurrencies and Web3, and you want to understand the terminology.",
+      "Most projects are delivered within 2–6 weeks depending on scope. Simple branding packages ship in under 2 weeks, while full web experiences with custom animations typically take 4–6 weeks.",
   },
   {
-    question: "I Want to Use AI in My Work, But I Don't Know How",
+    question: "What's the onboarding process like?",
     answer:
-      "You want to embrace the future of technology without fear.",
+      "After you reach out, we schedule a discovery call to understand your brand, audience, and goals. From there, we send a detailed proposal with scope, timeline, and investment. Once approved, we kick off with a deep-dive strategy session.",
   },
   {
-    question: "I Want to Be More Efficient and Creative, But There Are Too Many Tools",
+    question: "How is ArcStone different from hiring freelancers?",
     answer:
-      "You're ready to navigate tomorrow's innovations confidently.",
+      "Unlike unpredictable freelancers, we operate as a dedicated creative team with structured processes, consistent communication, and guaranteed delivery timelines. You get agency-quality output with the agility of a lean studio.",
   },
   {
-    question: "What's the Onboarding process like",
+    question: "Do you offer ongoing support after launch?",
     answer:
-      "You're ready to navigate tomorrow's innovations confidently.",
+      "Absolutely. We offer post-launch support packages that include maintenance, performance monitoring, content updates, and iterative design improvements to keep your digital presence sharp.",
   },
 ];
 
@@ -147,19 +134,19 @@ export const processSteps: ProcessStep[] = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Working with Crate is like having a dedicated squad of tech wizards and branding experts at my fingertips. And believe it or not, the value they bring is priceless.",
+      "Working with ArcStone is like having a dedicated squad of tech wizards and branding experts at my fingertips. The value they bring is truly priceless.",
     name: "Williams Paul",
     company: "HR, Greenish",
   },
   {
     quote:
-      "It's as if I have a full squad of internet experts and advertising professionals on my side, and the highlight? It didn't charge me a single penny",
+      "It's as if I have a full squad of internet experts and advertising professionals on my side, and the highlight? Exceptional quality at every turn.",
     name: "Adam Kary",
     company: "Creative Lead, Cloud",
   },
   {
     quote:
-      "It feels like I’ve got an entire team of web gurus and marketing pros working for me, and the best part? It didn’t cost me a cent.",
+      "It feels like I've got an entire team of web gurus and marketing pros working for me. ArcStone delivered beyond our expectations.",
     name: "Chris Waterwood",
     company: "VP, Minty",
   },
@@ -189,7 +176,7 @@ export const footerLinks: FooterLinks = {
     { label: "LinkedIn", href: "https://www.linkedin.com/company/arcstone-studios/" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
   ],
 };

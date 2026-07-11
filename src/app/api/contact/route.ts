@@ -13,12 +13,27 @@ const DEFAULT_TO_EMAIL = "hello@arcstonestudio.in";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, message } = body;
+    const { name, email, message, website } = body;
+
+    // Honeypot field — bots will fill this in, real users won't see it
+    if (website) {
+      // Silently return success to not tip off the bot
+      return NextResponse.json({ success: true });
+    }
 
     // Validate request data
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Name, email, and message are required fields." },
+        { status: 400 }
+      );
+    }
+
+    // Server-side email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "Please provide a valid email address." },
         { status: 400 }
       );
     }

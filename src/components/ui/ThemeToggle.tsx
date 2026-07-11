@@ -16,8 +16,8 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-14 h-7 rounded-full bg-border flex items-center p-1">
-        <div className="w-5 h-5 rounded-full bg-muted-foreground" />
+      <div className="w-14 h-7 bg-border border-2 border-border flex items-center p-0.5">
+        <div className="w-5 h-5 bg-muted-foreground" />
       </div>
     );
   }
@@ -27,13 +27,13 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative flex items-center w-14 h-7 rounded-full bg-border border-2 border-border focus:outline-none focus:ring-2 focus:ring-accent transition-colors duration-300 cursor-pointer"
+      className="relative flex items-center w-14 h-7 bg-border border-2 border-border focus:outline-none focus:ring-2 focus:ring-accent transition-colors duration-300 cursor-pointer"
       aria-label="Toggle Dark Mode"
     >
       <motion.div
-        className="w-5 h-5 rounded-full bg-foreground flex items-center justify-center absolute left-0.5"
+        className="w-5 h-5 bg-foreground flex items-center justify-center absolute left-0.5"
         animate={{
-          x: isDark ? 0 : 28, // 14px width = 56px. 56 - 20 (knob) - 4 (padding) = 32 roughly. 28px movement works.
+          x: isDark ? 0 : 28,
         }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       >
