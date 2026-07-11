@@ -70,10 +70,10 @@ export default function TermsOfService() {
               <p>
                 For questions regarding these terms, please contact us at{" "}
                 <a
-                  href="mailto:hello@arcstonestudio.in"
+                  href="mailto:arcstonestudios.in@gmail.com"
                   className="text-accent hover:underline underline-offset-4"
                 >
-                  hello@arcstonestudio.in
+                  arcstonestudios.in@gmail.com
                 </a>
                 .
               </p>

@@ -123,9 +123,11 @@ export function getClientEmailTemplate(rawName: string): string {
 /**
  * HTML Email template sent to the ArcStone Studio team when a contact form is submitted.
  */
-export function getAdminEmailTemplate(rawName: string, rawEmail: string, rawMessage: string): string {
+export function getAdminEmailTemplate(rawName: string, rawEmail: string, rawCompany: string, rawBudget: string, rawMessage: string): string {
   const name = escapeHtml(rawName);
   const email = escapeHtml(rawEmail);
+  const company = rawCompany ? escapeHtml(rawCompany) : 'N/A';
+  const budget = rawBudget ? escapeHtml(rawBudget) : 'N/A';
   const message = escapeHtml(rawMessage);
   const brandYellow = "#DFE104";
   const brandBlack = "#09090B";
@@ -197,6 +199,26 @@ export function getAdminEmailTemplate(rawName: string, rawEmail: string, rawMess
                       </td>
                       <td style="padding: 12px 0; border-bottom: 1px solid ${brandBorder}; font-size: 16px; color: ${brandYellow}; font-weight: bold;">
                         <a href="mailto:${email}" style="color: ${brandYellow}; text-decoration: none;">${email}</a>
+                      </td>
+                    </tr>
+
+                    <!-- Company -->
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid ${brandBorder}; width: 120px; font-size: 12px; font-weight: bold; text-transform: uppercase; color: #71717A;">
+                        Company
+                      </td>
+                      <td style="padding: 12px 0; border-bottom: 1px solid ${brandBorder}; font-size: 16px; font-weight: bold; color: ${brandWhite}; text-transform: uppercase;">
+                        ${company}
+                      </td>
+                    </tr>
+
+                    <!-- Budget -->
+                    <tr>
+                      <td style="padding: 12px 0; border-bottom: 1px solid ${brandBorder}; width: 120px; font-size: 12px; font-weight: bold; text-transform: uppercase; color: #71717A;">
+                        Budget
+                      </td>
+                      <td style="padding: 12px 0; border-bottom: 1px solid ${brandBorder}; font-size: 16px; font-weight: bold; color: ${brandWhite}; text-transform: uppercase;">
+                        ${budget}
                       </td>
                     </tr>
 

@@ -8,12 +8,12 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 // Fallback emails if environment variables are not set
 const DEFAULT_FROM_EMAIL = "onboarding@resend.dev";
-const DEFAULT_TO_EMAIL = "hello@arcstonestudio.in";
+const DEFAULT_TO_EMAIL = "arcstonestudios.in@gmail.com";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, message, website } = body;
+    const { name, email, company, budget, message, website } = body;
 
     // Honeypot field — bots will fill this in, real users won't see it
     if (website) {
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
         from: `ArcStone Leads <${fromEmail}>`,
         to: toEmail,
         subject: `✦ NEW PROJECT INQUIRY: ${name.toUpperCase()} ✦`,
-        html: getAdminEmailTemplate(name, email, message),
+        html: getAdminEmailTemplate(name, email, company, budget, message),
         // Allows replying directly to the prospect
         replyTo: email,
       });
