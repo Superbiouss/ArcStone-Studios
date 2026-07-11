@@ -24,7 +24,7 @@ export function Navbar() {
     };
   }, [isMenuOpen]);
 
-  // Track active section via IntersectionObserver
+  // Track active section via IntersectionObserver and scroll
   useEffect(() => {
     const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
     const observers: IntersectionObserver[] = [];
@@ -39,15 +39,25 @@ export function Navbar() {
             setActiveSection(id);
           }
         },
-        { rootMargin: "-30% 0px -60% 0px" }
+        { rootMargin: "-20% 0px -40% 0px" }
       );
 
       observer.observe(el);
       observers.push(observer);
     });
 
+    // Fallback: If user scrolls to the absolute bottom, always highlight contact
+    const handleScroll = () => {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+        setActiveSection("contact");
+      }
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
       observers.forEach((obs) => obs.disconnect());
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
