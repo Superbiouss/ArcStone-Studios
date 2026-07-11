@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} antialiased`} suppressHydrationWarning>
-      <body className="min-h-screen overflow-x-hidden">
+      <body className="bg-background text-foreground min-h-screen overflow-x-hidden">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -44,7 +44,7 @@
   --border: #3F3F46;
 }
 
-body.yellow-theme {
+.yellow-theme {
   --bg: #DFE104;
   --fg: #000000;
   --muted: #C8CA03;
