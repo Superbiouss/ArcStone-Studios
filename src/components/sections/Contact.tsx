@@ -17,6 +17,8 @@ export function Contact() {
     const data = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
+      company: formData.get("company") as string,
+      budget: formData.get("budget") as string,
       message: formData.get("message") as string,
       website: formData.get("website") as string, // honeypot
     };
