@@ -178,12 +178,21 @@
   },
   "active": "e7953581a50721c9",
   "lastOpenFiles": [
-    "src/components/icons.tsx",
-    "src/data/site-content.ts",
-    "src/data",
-    "src/config/site.ts",
-    "src/config",
-    "src/types/index.ts",
-    "src/types"
+    "public/logos/only-icon.png",
+    "src/app/api/contact/route.ts",
+    "src/app/api/contact",
+    "src/app/api",
+    "src/lib/email-templates.ts",
+    "src/lib",
+    "node_modules/@stablelib/base64/lib/base64.js",
+    "node_modules/@stablelib/base64/lib/base64.test.js.map",
+    "node_modules/@stablelib/base64/lib/base64.test.js",
+    "node_modules/@stablelib/base64/lib/base64.test.d.ts",
+    "node_modules/@stablelib/base64/lib/base64.js.map",
+    "node_modules/resend/readme.md",
+    "node_modules/fast-sha256/README.md",
+    "node_modules/postal-mime/README.md",
+    "node_modules/postal-mime/CHANGELOG.md",
+    "node_modules/standardwebhooks/README.md"
   ]
 }

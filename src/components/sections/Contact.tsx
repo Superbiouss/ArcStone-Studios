@@ -37,14 +37,18 @@ export function Contact() {
     
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
     
     try {
-      // Replace with actual Formspree endpoint
-      const response = await fetch("https://formspree.io/f/xbjnzdzl", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(data),
         headers: {
-          Accept: "application/json",
+          "Content-Type": "application/json",
         },
       });
 

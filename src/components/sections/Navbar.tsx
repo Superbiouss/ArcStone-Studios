@@ -21,14 +21,14 @@ export function Navbar() {
             className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity cursor-pointer"
           >
             <Image
-              src="/logos/arcstone-icon.png"
+              src="/logos/only-icon.png"
               alt={`${siteConfig.name} Icon`}
               width={48}
               height={48}
               className="h-8 w-8 md:h-10 md:w-10 object-contain invert dark:invert-0"
               priority
             />
-            <span className="font-bold uppercase tracking-tighter text-xl md:text-2xl text-foreground">
+            <span className="font-bold uppercase tracking-tighter leading-none text-xl md:text-2xl text-foreground">
               {siteConfig.name}
             </span>
           </button>
