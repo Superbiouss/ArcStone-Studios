@@ -1,7 +1,6 @@
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { AccordionItem } from "@/components/motion/Accordion";
 import { faqs } from "@/data/site-content";
-import { Button } from "@/components/ui/Button";
 
 export function FAQ() {
   return (
@@ -21,9 +20,12 @@ export function FAQ() {
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-md">
                   Everything you need to know about our process, pricing, and how we deliver world-class digital experiences.
                 </p>
-                <Button variant="outline" size="lg" asChild>
-                  <a href="#contact">ASK US ANYTHING</a>
-                </Button>
+                <a 
+                  href="#contact"
+                  className="inline-flex items-center justify-center font-bold uppercase tracking-tighter rounded-none cursor-pointer border-2 border-border bg-transparent text-foreground hover:bg-foreground hover:text-background hover:border-foreground transition-colors h-20 px-12 text-lg w-max"
+                >
+                  ASK US ANYTHING
+                </a>
               </ScrollReveal>
             </div>
           </div>
