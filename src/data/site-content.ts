@@ -68,6 +68,11 @@ export const faqs: FAQItem[] = [
       "We specialize in brand identity systems, UI/UX design, web development, motion design, and creative direction. From strategy to launch, we handle every pixel of your digital presence.",
   },
   {
+    question: "What is the typical investment for a project?",
+    answer:
+      "While every project is custom-scoped, our brand identity engagements typically start at $5,000, and full digital experiences (web design + development) start around $10,000. We focus on delivering high-ROI outcomes and premium quality rather than standard hourly billing.",
+  },
+  {
     question: "How long does a typical project take?",
     answer:
       "Most projects are delivered within 2–6 weeks depending on scope. Simple branding packages ship in under 2 weeks, while full web experiences with custom animations typically take 4–6 weeks.",
@@ -78,14 +83,34 @@ export const faqs: FAQItem[] = [
       "After you reach out, we schedule a discovery call to understand your brand, audience, and goals. From there, we send a detailed proposal with scope, timeline, and investment. Once approved, we kick off with a deep-dive strategy session.",
   },
   {
+    question: "How do we communicate during the project?",
+    answer:
+      "We set up a dedicated Slack or Discord channel for real-time collaboration. We also use a shared Notion workspace (our 'Design Board') where you can track progress, view deliverables, and provide feedback asynchronously without getting lost in email threads.",
+  },
+  {
+    question: "How many revisions do I get?",
+    answer:
+      "We don't believe in arbitrarily capping revisions. Our milestone-based approach ensures we are perfectly aligned at every step. We iterate until the specific milestone (wireframes, design concept, prototype) meets the agreed-upon strategic goals before moving forward.",
+  },
+  {
+    question: "What technology stack do you use for web development?",
+    answer:
+      "We build blazing-fast, modern web applications using React, Next.js, and Tailwind CSS. For fluid, immersive animations, we leverage Framer Motion, GSAP, and WebGL. Our stacks are designed for maximum performance, SEO, and scalability.",
+  },
+  {
     question: "How is ArcStone different from hiring freelancers?",
     answer:
       "Unlike unpredictable freelancers, we operate as a dedicated creative team with structured processes, consistent communication, and guaranteed delivery timelines. You get agency-quality output with the agility of a lean studio.",
   },
   {
+    question: "Who owns the final deliverables?",
+    answer:
+      "You do. Once the final invoice is paid in full, 100% of the intellectual property, design files (Figma), and source code are transferred to your ownership. We only retain the right to showcase the work in our studio portfolio.",
+  },
+  {
     question: "Do you offer ongoing support after launch?",
     answer:
-      "Absolutely. We offer post-launch support packages that include maintenance, performance monitoring, content updates, and iterative design improvements to keep your digital presence sharp.",
+      "Absolutely. We offer post-launch support packages that include maintenance, performance monitoring, content updates, and iterative design improvements to keep your digital presence sharp and secure.",
   },
 ];
 
