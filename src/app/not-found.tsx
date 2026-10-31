@@ -1,6 +1,4 @@
-"use client";
-
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -18,13 +16,12 @@ export default function NotFound() {
         The page you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
       <div className="mt-8">
-        <Button
-          variant="primary"
-          size="lg"
-          onClick={() => (window.location.href = "/")}
+        <Link
+          href="/"
+          className="inline-flex items-center justify-center font-bold uppercase tracking-tighter rounded-none cursor-pointer bg-accent text-accent-foreground hover:scale-105 active:scale-95 transition-transform h-20 px-12 text-lg"
         >
           BACK TO HOME
-        </Button>
+        </Link>
       </div>
     </main>
   );

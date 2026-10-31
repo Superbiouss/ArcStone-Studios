@@ -15,7 +15,7 @@ export function FAQ() {
                 <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold uppercase tracking-tighter leading-[0.9] mb-6">
                   GOT QUESTIONS?
                   <br />
-                  <span className="text-accent">WE'VE GOT ANSWERS.</span>
+                  <span className="text-accent">WE&apos;VE GOT ANSWERS.</span>
                 </h2>
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-md">
                   Everything you need to know about our process, pricing, and how we deliver world-class digital experiences.

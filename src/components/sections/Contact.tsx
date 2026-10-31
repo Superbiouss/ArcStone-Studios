@@ -71,21 +71,21 @@ export function Contact() {
                 SOLUTION FOR YOUR
                 <br />
                 BUSINESSES,{" "}
-                <span className="text-accent">STAND OUT!</span>
+                <span className="bg-foreground text-background px-3 py-1 inline-block mt-2">STAND OUT!</span>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
               <div className="space-y-8 mt-12 md:mt-24">
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-muted mb-2">Email Us</h4>
-                  <a href="mailto:arcstonestudios.in@gmail.com" className="text-2xl md:text-3xl font-medium hover:text-accent transition-colors">
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2">Email Us</h4>
+                  <a href="mailto:arcstonestudios.in@gmail.com" className="text-2xl md:text-3xl font-bold hover:underline transition-all">
                     arcstonestudios.in@gmail.com
                   </a>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-muted mb-2">Visit Us</h4>
-                  <p className="text-xl md:text-2xl font-medium opacity-80">
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2">Visit Us</h4>
+                  <p className="text-xl md:text-2xl font-medium opacity-90">
                     Mumbai, Maharashtra
                     <br />
                     India
@@ -120,7 +120,7 @@ export function Contact() {
                     type="text"
                     name="name"
                     placeholder="YOUR NAME *"
-                    className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground placeholder:text-muted px-0 outline-none"
+                    className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground placeholder:text-foreground/50 px-0 outline-none"
                     required
                     id="contact-name"
                   />
@@ -134,7 +134,7 @@ export function Contact() {
                     type="email"
                     name="email"
                     placeholder="YOUR EMAIL *"
-                    className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground placeholder:text-muted px-0 outline-none"
+                    className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground placeholder:text-foreground/50 px-0 outline-none"
                     required
                     id="contact-email"
                   />
@@ -148,7 +148,7 @@ export function Contact() {
                     type="text"
                     name="company"
                     placeholder="COMPANY / BRAND"
-                    className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground placeholder:text-muted px-0 outline-none"
+                    className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground placeholder:text-foreground/50 px-0 outline-none"
                     id="contact-company"
                   />
                 </div>
@@ -156,13 +156,13 @@ export function Contact() {
 
               <ScrollReveal delay={0.4}>
                 <div className="flex flex-col md:flex-row gap-4 md:gap-8 border-b-2 border-border focus-within:border-accent focus-within:bg-accent/5 transition-colors">
-                  <div className="w-full md:w-1/3">
+                  <div className="w-full md:w-1/3 relative">
                     <label htmlFor="contact-currency" className="sr-only">Currency</label>
                     <select
                       name="currency"
                       value={currency}
                       onChange={(e) => setCurrency(e.target.value)}
-                      className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-muted focus:text-foreground px-0 outline-none appearance-none cursor-pointer"
+                      className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground/80 focus:text-foreground px-0 outline-none appearance-none cursor-pointer pr-8"
                       id="contact-currency"
                     >
                       <option value="USD $" className="bg-background text-foreground text-lg">USD $</option>
@@ -170,15 +170,18 @@ export function Contact() {
                       <option value="EUR €" className="bg-background text-foreground text-lg">EUR €</option>
                       <option value="GBP £" className="bg-background text-foreground text-lg">GBP £</option>
                     </select>
+                    <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-sm text-foreground/60 font-bold" aria-hidden="true">
+                      ▼
+                    </span>
                   </div>
                   
-                  <div className="w-full md:w-2/3">
+                  <div className="w-full md:w-2/3 relative">
                     <label htmlFor="contact-budget" className="sr-only">Budget</label>
                     <select
                       name="budget"
                       value={budgetType}
                       onChange={(e) => setBudgetType(e.target.value)}
-                      className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-muted focus:text-foreground px-0 outline-none appearance-none cursor-pointer"
+                      className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground/80 focus:text-foreground px-0 outline-none appearance-none cursor-pointer pr-8"
                       id="contact-budget"
                       required
                     >
@@ -189,6 +192,9 @@ export function Contact() {
                       <option value="25k+" className="bg-background text-foreground text-lg">25k+</option>
                       <option value="Custom" className="bg-background text-foreground text-lg">Custom Amount</option>
                     </select>
+                    <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-sm text-foreground/60 font-bold" aria-hidden="true">
+                      ▼
+                    </span>
                   </div>
                 </div>
                 
@@ -200,7 +206,7 @@ export function Contact() {
                       type="text"
                       name="customBudget"
                       placeholder="ENTER CUSTOM AMOUNT *"
-                      className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground placeholder:text-muted px-0 outline-none"
+                      className="w-full h-16 md:h-20 bg-transparent text-xl md:text-3xl font-bold uppercase tracking-tighter text-foreground placeholder:text-foreground/50 px-0 outline-none"
                       required
                       id="contact-custom-budget"
                     />
@@ -215,7 +221,7 @@ export function Contact() {
                     name="message"
                     placeholder="TELL US ABOUT YOUR PROJECT *"
                     rows={4}
-                    className="w-full bg-transparent text-xl md:text-3xl font-bold tracking-tighter text-foreground placeholder:text-muted placeholder:uppercase px-0 py-6 md:py-8 outline-none resize-none"
+                    className="w-full bg-transparent text-xl md:text-3xl font-bold tracking-tighter text-foreground placeholder:text-foreground/50 placeholder:uppercase px-0 py-6 md:py-8 outline-none resize-none"
                     required
                     id="contact-message"
                   />

@@ -39,6 +39,14 @@ function ProjectImage({ image, title }: { image: string; title: string }) {
 }
 
 export function Work() {
+  const handleCardClick = (url?: string) => {
+    if (url && url !== "#") {
+      window.open(url, "_blank", "noopener,noreferrer");
+    } else {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="work" className="py-20 md:py-32 border-t-2 border-border">
       <div className="mx-auto max-w-[95vw]">
@@ -52,48 +60,63 @@ export function Work() {
 
         {/* Project grid with hairline dividers */}
         <div className="mt-16 md:mt-24 bg-border grid md:grid-cols-2 gap-px">
-          {projects.map((project, i) => (
-            <ScrollReveal 
-              key={project.title} 
-              delay={i * 0.1}
-              className={i === projects.length - 1 && projects.length % 2 !== 0 ? "md:col-span-2" : ""}
-            >
-              <div className="group bg-background overflow-hidden cursor-pointer h-full">
-                {/* Project Image */}
-                <ProjectImage image={project.image} title={project.title} />
+          {projects.map((project, i) => {
+            const primaryUrl = project.socials?.[0]?.url;
+            return (
+              <ScrollReveal 
+                key={project.title} 
+                delay={i * 0.1}
+                className={i === projects.length - 1 && projects.length % 2 !== 0 ? "md:col-span-2" : ""}
+              >
+                <div 
+                  onClick={() => handleCardClick(primaryUrl)}
+                  className="group bg-background overflow-hidden cursor-pointer h-full transition-colors"
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      handleCardClick(primaryUrl);
+                    }
+                  }}
+                  aria-label={`View project: ${project.title}`}
+                >
+                  {/* Project Image */}
+                  <ProjectImage image={project.image} title={project.title} />
 
-                {/* Project Info */}
-                <div className="p-6 md:p-8 border-t-2 border-border group-hover:border-accent transition-colors duration-300">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-                    <div>
-                      <p className="text-xs md:text-sm uppercase tracking-widest text-muted-foreground mb-2">
-                        {project.category}
-                      </p>
-                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tighter group-hover:text-accent transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                    </div>
-                    {project.socials && (
-                      <div className="flex gap-2">
-                        {project.socials.map((social) => (
-                          <a
-                            key={social.type}
-                            href={social.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="border-2 border-border p-2 hover:bg-foreground hover:text-background transition-colors duration-300 flex items-center justify-center"
-                            aria-label={social.type}
-                          >
-                            {social.type === "instagram" ? <InstagramIcon /> : <GlobeIcon />}
-                          </a>
-                        ))}
+                  {/* Project Info */}
+                  <div className="p-6 md:p-8 border-t-2 border-border group-hover:border-accent transition-colors duration-300">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                      <div>
+                        <p className="text-xs md:text-sm uppercase tracking-widest text-muted-foreground mb-2">
+                          {project.category}
+                        </p>
+                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tighter group-hover:text-accent transition-colors duration-300">
+                          {project.title}
+                        </h3>
                       </div>
-                    )}
+                      {project.socials && (
+                        <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
+                          {project.socials.map((social) => (
+                            <a
+                              key={social.type}
+                              href={social.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="border-2 border-border p-2 hover:bg-foreground hover:text-background transition-colors duration-300 flex items-center justify-center"
+                              aria-label={`${social.type === "instagram" ? "Instagram" : "Website"} for ${project.title}`}
+                            >
+                              {social.type === "instagram" ? <InstagramIcon /> : <GlobeIcon />}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>

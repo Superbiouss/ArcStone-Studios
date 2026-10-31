@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export default function Error({
@@ -26,13 +27,12 @@ export default function Error({
         <Button variant="primary" size="lg" onClick={reset}>
           TRY AGAIN
         </Button>
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={() => (window.location.href = "/")}
+        <Link
+          href="/"
+          className="inline-flex items-center justify-center font-bold uppercase tracking-tighter rounded-none cursor-pointer border-2 border-border bg-transparent text-foreground hover:bg-foreground hover:text-background hover:border-foreground transition-colors h-20 px-12 text-lg"
         >
           BACK TO HOME
-        </Button>
+        </Link>
       </div>
     </main>
   );

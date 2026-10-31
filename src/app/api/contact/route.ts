@@ -42,13 +42,20 @@ export async function POST(request: Request) {
 
     if (!resend) {
       console.warn(
-        "[Contact API] RESEND_API_KEY is not defined in environment variables. Running in sandbox/development mock mode."
+        "[Contact API] RESEND_API_KEY is not defined in environment variables."
       );
+      if (process.env.NODE_ENV === "production") {
+        console.error("[Contact API] Error: RESEND_API_KEY is missing in production environment!");
+        return NextResponse.json(
+          { error: "Email service is not configured. Please contact us directly at arcstonestudios.in@gmail.com." },
+          { status: 500 }
+        );
+      }
       // Return mock success during local development when api key is missing
       return NextResponse.json({
         success: true,
         mock: true,
-        message: "Message received (Mock Mode - Resend API Key is missing).",
+        message: "Message received (Development Mock Mode - RESEND_API_KEY missing).",
       });
     }
 

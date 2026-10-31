@@ -1,39 +1,61 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
+
+const emptySubscribe = () => () => {};
 
 export function Preloader() {
+  const prefersReducedMotion = useReducedMotion();
+  const alreadyPreloaded = useSyncExternalStore(
+    emptySubscribe,
+    () => Boolean(window.sessionStorage.getItem("arcstone_preloaded")),
+    () => false
+  );
+
   const [progress, setProgress] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isFinished, setIsFinished] = useState(false);
+
+  const shouldSkip = prefersReducedMotion || alreadyPreloaded;
 
   useEffect(() => {
-    // Prevent scrolling while loading
+    if (shouldSkip) {
+      return;
+    }
+
     document.body.style.overflow = "hidden";
-    
+
     let currentProgress = 0;
     const interval = setInterval(() => {
-      currentProgress += Math.floor(Math.random() * 15) + 5;
+      currentProgress += Math.floor(Math.random() * 18) + 8;
       if (currentProgress >= 100) {
         currentProgress = 100;
         clearInterval(interval);
         setTimeout(() => {
-          setIsLoading(false);
+          setIsFinished(true);
           document.body.style.overflow = "";
-        }, 400); // Hold at 100% for a moment
+          try {
+            window.sessionStorage.setItem("arcstone_preloaded", "true");
+          } catch {
+            // Ignore storage quota/permission errors
+          }
+        }, 300);
       }
       setProgress(currentProgress);
-    }, 100);
+    }, 60);
 
     return () => {
       clearInterval(interval);
       document.body.style.overflow = "";
     };
-  }, []);
+  }, [shouldSkip]);
+
+  if (shouldSkip || isFinished) return null;
 
   return (
     <AnimatePresence>
-      {isLoading && (
+      {!isFinished && (
         <motion.div
           initial={{ y: 0 }}
           exit={{ y: "-100%" }}
